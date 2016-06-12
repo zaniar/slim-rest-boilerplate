@@ -1,0 +1,19 @@
+{
+    "name": "zaniar/slim-rest-boilerplate",
+    "description": "Boilerplate for creating REST API project quickly using Slim Framework",
+    "keywords": ["microframework","rest","router", "psr7"],
+    "homepage": "http://github.com/zaniar/slim-rest-boilerplate",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Edwin Zaniar Putra",
+            "email": "edwin.zaniar@gmail.com",
+            "homepage": "http://zaniar.web.id/"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "slim/slim": "^3.1",
+        "monolog/monolog": "^1.17"
+    }
+}
