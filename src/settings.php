@@ -5,7 +5,8 @@ $environment = 'development';
 $db = [
 	'development' => [
 		'adapter' => 'sqlite',
-		'name' => 'data/development.db'
+		'name' => 'data/development.db',
+		'memory' => true,
 	],
 	'production' => [
 	],
@@ -13,7 +14,7 @@ $db = [
 
 return [
     'settings' => [
-		'environment' => $environment, 
+		'environment' => $environment,
         'displayErrorDetails' => true, // set to false in production
 
         // Monolog settings

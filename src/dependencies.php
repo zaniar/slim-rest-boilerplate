@@ -12,15 +12,22 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
+// http client
+$container['client'] = function ($c) {
+	$client = new GuzzleHttp\Client();
+
+	return $client;
+};
+
 // database
 $container['db'] = function ($c) {
 	$settings = $c->get('settings')['db'];
-	
+
 	$dsn;
 	switch($settings['adapter']) {
 		case 'sqlite':
 			$dsn = 'sqlite:';
-			if ($settings['memory']) {
+			if ($settings['memory'] === true) {
 				$dsn .= ':memory:';
 			} else {
 				if (substr($settings['name'], 0) !== '/') {
@@ -30,10 +37,10 @@ $container['db'] = function ($c) {
 			}
 		break;
 	}
-	
+
 	$c->logger->info($dsn);
 	$pdo = new PDO($dsn);
-	
+
 	$db = new NotORM($pdo);
 	return $db;
 };
