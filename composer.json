@@ -17,9 +17,27 @@
         "monolog/monolog": "^1.17",
         "robmorgan/phinx": "^0.5.3",
         "vrana/notorm": "dev-master",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "vlucas/phpdotenv": "^2.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.4"
-    }
+        "phpunit/phpunit": "^5.4",
+        "fzaninotto/faker": "^1.6"
+    },
+	"scripts": {
+		"create-migration": "phinx create",
+		"migrate": "phinx migrate",
+		"rollback": "phinx rollback",
+		"create-seed": "phinx seed:create",
+		"seed": "phinx seed:run",
+		"status-migration": "phinx status",
+		"test": "APP_ENV=test phpunit --colors=always test || php -r \"return 0;\"",
+		"serve": "Dev\\Task::serve"
+	},
+	"autoload": {
+		"psr-4": {
+			"Dev\\": "dev/",
+			"Dev\\Test\\": "dev/"
+		}
+	}
 }
