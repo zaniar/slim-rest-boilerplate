@@ -47,7 +47,16 @@ $container['db'] = function ($c) {
 			}
 		break;
 		default:
-			$dsn = 'mysql:host='.$host.';dbname='.$name;
+			$dsn = $adapter.':host='.$host.';dbname='.$name;
+			if (!isset($port)) {
+				$dsn .= ';port='.$port;
+			}
+			if (!isset($unix_socket)) {
+				$dsn .= ';unix_socket='.$unix_socket;
+			}
+			if (!isset($charset)) {
+				$dsn .= ';charset='.$charset;
+			}
 	}
 
 	$pdo = new PDO($dsn, $user, $pass);
